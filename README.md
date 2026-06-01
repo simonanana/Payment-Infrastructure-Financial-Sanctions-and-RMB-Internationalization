@@ -26,7 +26,6 @@ The international monetary system is modeled as three concurrent structural forc
 
 The central theoretical contribution is the **Sanctions Paradox**: sanctions reinforce dollar usage when RMB infrastructure is absent (Phase 1) but erode it when infrastructure is in place (Phase 2). The 2022 Russia sanctions watershed serves as the empirical trigger for the population-average Phase 1 → Phase 2 mechanism-state transition.
 
----
 
 ## Key Findings
 
@@ -42,7 +41,6 @@ The central theoretical contribution is the **Sanctions Paradox**: sanctions rei
 
 The Phase 2 interaction coefficient is **7–13× larger** than the pre-2022 estimate, corroborating the two-phase Sanctions Paradox dynamic.
 
----
 
 ## Methodology
 
@@ -67,7 +65,6 @@ Three sources of quasi-experimental variation are exploited:
 
 GDP (log), trade openness (log), financial depth, capital account openness (Chinn–Ito), GDP growth, inflation (Winsorized), FDI inflows (% GDP, Winsorized), UN General Assembly alignment score.
 
----
 
 ## Repository Structure
 
@@ -113,7 +110,6 @@ GDP (log), trade openness (log), financial depth, capital account openness (Chin
 | 14 | Output export summary |
 | 15 | Supplementary analyses (Argentina deep dive, marginal effects, permutation inference, placebo test, force composition figure) |
 
----
 
 ## Data Requirements
 
@@ -140,7 +136,6 @@ The main analysis requires `master_panel.csv` — a balanced country-year panel 
 
 **Data sources:** BIS Triennial Survey, SWIFT RMB Tracker, PBoC reports, CIPS official disclosures, World Bank WDI, IMF IFS, Chinn–Ito index, UN Comtrade, UNGA voting records, Global Sanctions Database.
 
----
 
 ## Installation
 
@@ -157,7 +152,6 @@ pip install linearmodels
 
 The notebook also supports Google Colab — upload `master_panel.csv` to the Colab session storage or mount Google Drive before running.
 
----
 
 ## Replication
 
@@ -166,7 +160,6 @@ The notebook also supports Google Colab — upload `master_panel.csv` to the Col
 3. Run `sanctions_dedollarization_panel.ipynb` from top to bottom
 4. All figures and tables will be saved to `output/`
 
----
 
 ## Citation
 
@@ -182,14 +175,8 @@ If you use this code or analysis, please cite:
 }
 ```
 
----
 
 ## Keywords
 
 `de-dollarization` · `cross-border payment infrastructure` · `CIPS` · `financial sanctions` · `BRICS+` · `renminbi internationalization` · `push–pull model` · `Sanctions Paradox` · `panel econometrics` · `Callaway–Sant'Anna` · `PPML` · `event study` · `two-way fixed effects`
 
----
-
-## License
-
-MIT License. See [LICENSE](LICENSE) for details.
