@@ -12,7 +12,6 @@ This repository contains the full empirical analysis code for the working paper:
 
 The paper formalizes the **Sanctions Paradox**: the finding that financial sanctions and dollar-hegemony erosion are not opposing forces but sequential phases of a single, infrastructure-contingent process. Using a balanced panel of **170 countries over 2010–2023** (N = 2,380 country-year observations), the analysis estimates the conditions under which China's cross-border payment infrastructure (CIPS/clearing banks) converts the political risk premium embedded in financial sanctions into observable RMB invoicing diversification.
 
----
 
 ## Theoretical Framework
 
@@ -87,8 +86,6 @@ GDP (log), trade openness (log), financial depth, capital account openness (Chin
 │   └── ...
 └── README.md
 ```
-
----
 
 ## Notebook Structure
 
