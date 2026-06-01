@@ -158,21 +158,6 @@ The notebook also supports Google Colab — upload `master_panel.csv` to the Col
 4. All figures and tables will be saved to `output/`
 
 
-## Citation
-
-If you use this code or analysis, please cite:
-
-```bibtex
-@unpublished{dedollarization_sanctions_2025,
-  title   = {Sanctions, Infrastructure, and De-Dollarization: Panel Evidence
-             on the Push–Pull–Resist Framework (2010–2023)},
-  author  = {[Author(s)]},
-  year    = {2025},
-  note    = {Working paper}
-}
-```
-
-
 ## Keywords
 
 `de-dollarization` · `cross-border payment infrastructure` · `CIPS` · `financial sanctions` · `BRICS+` · `renminbi internationalization` · `push–pull model` · `Sanctions Paradox` · `panel econometrics` · `Callaway–Sant'Anna` · `PPML` · `event study` · `two-way fixed effects`
