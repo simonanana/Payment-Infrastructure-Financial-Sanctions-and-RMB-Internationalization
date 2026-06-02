@@ -89,7 +89,6 @@ GDP (log), trade openness (log), financial depth, capital account openness (Chin
 │   ├── fig_three_role.png                      # Sender–Target–Observer role heterogeneity
 │   ├── fig_observer_heatmap_bar.png            # Observer country heatmap/bar chart
 │   ├── fig_force_vectors.png                   # Force vector diagram (Phase 1 vs. Phase 2)
-│   ├── fig_force_vectors_UPDATED.png           # Updated force vectors with bootstrap CIs
 │   ├── fig_observer_quadrants_panel.png        # Quadrant: sanctions exposure × infrastructure
 │   │
 │   ├── ── Supplementary Figures ───────────────────────────────────────────────
