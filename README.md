@@ -70,20 +70,40 @@ GDP (log), trade openness (log), financial depth, capital account openness (Chin
 ```
 .
 ├── sanctions_dedollarization_panel.ipynb   # Main analysis notebook (all sections)
-├── master_panel.csv                        # ⚠ Required: 170-country balanced panel (not included)
-├── output/                                 # Generated figures and tables (auto-created)
-│   ├── table1_core_cips_infrastructure.csv
-│   ├── table2_push_pull_interaction.csv
-│   ├── fig_event_study_clearing.png
-│   ├── fig_event_study_rmb.png
-│   ├── fig_csdid_att.png
-│   ├── fig_phase_decomposition.png
-│   ├── fig_quadrant.png
-│   ├── fig_argentina_deep_dive.png
-│   ├── fig_marginal_effects.png
-│   ├── fig_permutation_test.png
-│   ├── fig_force_composition_integrated.png
-│   └── ...
+├── master_panel.csv                        # Required: 170-country balanced panel (not included)
+├── output/                                 # Auto-created on run — 23 output files total
+│   │
+│   ├── ── Core Regression Tables ──────────────────────────────────────────────
+│   ├── table1_core_cips_infrastructure.csv     # CIPS → RMB Infrastructure (TWFE, Table 1)
+│   ├── table2_push_pull_interaction.csv        # Push×Pull Interaction on RMB Invoicing (Table 2)
+│   ├── table4_sanctions_paradox_temporal.csv   # Phase 1 vs. Phase 2 Temporal Decomposition
+│   ├── table5_heterogeneity.csv                # Sender–Target–Observer Role Taxonomy
+│   ├── table_robustness.csv                    # Robustness checks (broad CIPS, exclusions, transforms)
+│   ├── table_ppml.csv                          # PPML estimation results
+│   ├── table_iv.csv                            # IV estimation results
+│   │
+│   ├── ── Main Figures ────────────────────────────────────────────────────────
+│   ├── fig_event_study.png                     # Event study: CIPS dynamic treatment effects
+│   ├── fig_csdid_dynamic.png                   # CS-DiD group-time ATT estimates
+│   ├── fig_three_forces.png                    # Push–Pull–Resist three-force diagram
+│   ├── fig_three_role.png                      # Sender–Target–Observer role heterogeneity
+│   ├── fig_observer_heatmap_bar.png            # Observer country heatmap/bar chart
+│   ├── fig_force_vectors.png                   # Force vector diagram (Phase 1 vs. Phase 2)
+│   ├── fig_force_vectors_UPDATED.png           # Updated force vectors with bootstrap CIs
+│   ├── fig_observer_quadrants_panel.png        # Quadrant: sanctions exposure × infrastructure
+│   │
+│   ├── ── Supplementary Figures ───────────────────────────────────────────────
+│   ├── fig_argentina_deep_dive.png             # Argentina leverage point & leave-one-out
+│   ├── fig_marginal_effects.png                # Marginal effect of sanctions as f(Infrastructure)
+│   ├── fig_permutation_test.png                # Permutation inference: Phase 2 (N=1,000)
+│   ├── fig_force_composition_integrated.png    # Integrated force composition + marginal effects
+│   │
+│   └── ── Supplementary Tables ────────────────────────────────────────────────
+│       ├── csdid_dynamic_att.csv               # CS-DiD group-time ATT point estimates
+│       ├── phase2_leave_one_out.csv            # Phase 2 leave-one-out sensitivity
+│       ├── phase2_dfbetas.csv                  # DFBETA influence diagnostics (Phase 2)
+│       └── table_placebo.csv                   # Placebo treatment date falsification test
+│
 └── README.md
 ```
 
