@@ -1,0 +1,7 @@
+spec,var,beta,se,p,stars
+PPML (A) Infra×Sanc,rmb_infra_it,0.7213,0.3827,0.0595,*
+PPML (A) Infra×Sanc,sanction_fin_norm_fixed,14.9513,6.3657,0.0188,**
+PPML (A) Infra×Sanc,infra_x_sanction,-1.6682,4.0484,0.6803,
+PPML (B) CIPS×Sanc,CIPSit,-0.1959,0.461,0.6709,
+PPML (B) CIPS×Sanc,sanction_fin_norm_fixed,11.1785,6.3549,0.0786,*
+PPML (B) CIPS×Sanc,cips_x_sanction,3.0528,6.5386,0.6406,
