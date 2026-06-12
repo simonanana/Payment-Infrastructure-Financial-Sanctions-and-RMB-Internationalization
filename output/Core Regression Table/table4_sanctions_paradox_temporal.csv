@@ -1,0 +1,13 @@
+DV,spec,label,var,beta,se,p,stars,n,r2
+rmb_invoicing_w,2010-2021 [rmb_invoicing_w],Phase 1: Sanctions,sanction_fin_norm_fixed,-1.4774,0.363,0.0001,***,1211,0.0724
+rmb_invoicing_w,2010-2021 [rmb_invoicing_w],Phase 1: Infra×Sanctions,infra_x_sanction,1.5758,0.3339,0.0,***,1211,0.0724
+rmb_inv_asinh,2010-2021 [rmb_inv_asinh],Phase 1: Sanctions,sanction_fin_norm_fixed,-1.1098,0.2598,0.0,***,1211,0.1269
+rmb_inv_asinh,2010-2021 [rmb_inv_asinh],Phase 1: Infra×Sanctions,infra_x_sanction,1.2016,0.2226,0.0,***,1211,0.1269
+rmb_invoicing_w,2022-2023 [rmb_invoicing_w],Phase 2: Sanctions,sanction_fin_norm_fixed,1.1838,2.9641,0.6907,,188,0.2285
+rmb_invoicing_w,2022-2023 [rmb_invoicing_w],Phase 2: Infra×Sanctions,infra_x_sanction,20.8046,8.5982,0.0177,**,188,0.2285
+rmb_inv_asinh,2022-2023 [rmb_inv_asinh],Phase 2: Sanctions,sanction_fin_norm_fixed,1.0126,2.1279,0.6354,,188,0.2759
+rmb_inv_asinh,2022-2023 [rmb_inv_asinh],Phase 2: Infra×Sanctions,infra_x_sanction,11.926,4.8433,0.0159,**,188,0.2759
+rmb_invoicing_w,Full sample [rmb_invoicing_w],Full: Sanctions,sanction_fin_norm_fixed,-1.5655,0.6413,0.0148,**,1399,0.0671
+rmb_invoicing_w,Full sample [rmb_invoicing_w],Full: Infra×Sanctions,infra_x_sanction,1.7702,0.6472,0.0063,***,1399,0.0671
+rmb_inv_asinh,Full sample [rmb_inv_asinh],Full: Sanctions,sanction_fin_norm_fixed,-1.0829,0.3692,0.0034,***,1399,0.1055
+rmb_inv_asinh,Full sample [rmb_inv_asinh],Full: Infra×Sanctions,infra_x_sanction,1.2214,0.35,0.0005,***,1399,0.1055

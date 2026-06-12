@@ -1,0 +1,8 @@
+DV,spec,label,var,beta,se,p,stars,n,r2
+clearing_bank_it,robust_A,CIPS broad [clearing_bank_it],CIPS_broad_it,0.1828,0.0345,0.0,***,1775,0.1102
+rmb_invoicing_w,robust_A,CIPS broad [rmb_invoicing_w],CIPS_broad_it,0.1141,0.0415,0.006,***,1399,0.0361
+clearing_bank_it,robust_B,Drop RUS+CHN [clearing_bank_it],CIPSit,0.1522,0.0575,0.0082,***,1763,0.2658
+rmb_invoicing_w,robust_B,Drop RUS+CHN [rmb_invoicing_w],CIPSit,-0.0402,0.1175,0.7323,,1387,0.1267
+rmb_invoicing_w,robust_B_inter,Infra×Sanc (no RUS/CHN),infra_x_sanction,2.786,1.6674,0.095,*,1387,0.0632
+rmb_inv_asinh,robust_C,Infra×Sanc [asinh],infra_x_sanction,1.2214,0.35,0.0005,***,1399,0.1055
+rmb_invoicing_w,robust_D,Infra×Sanc [min ctrl],infra_x_sanction,6.7926,1.1,0.0,***,1694,0.3482

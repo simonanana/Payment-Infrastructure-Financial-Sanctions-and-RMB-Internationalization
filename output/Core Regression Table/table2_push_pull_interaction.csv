@@ -1,0 +1,19 @@
+DV,spec,label,var,beta,se,p,stars,n,r2
+rmb_invoicing_w,(A) Infra×Sanc [wins.],Pull: RMB infra,rmb_infra_it,0.1266,0.0627,0.0436,**,1399,0.0671
+rmb_invoicing_w,(A) Infra×Sanc [wins.],Push: Sanctions,sanction_fin_norm_fixed,-1.5655,0.6413,0.0148,**,1399,0.0671
+rmb_invoicing_w,(A) Infra×Sanc [wins.],Push×Pull,infra_x_sanction,1.7702,0.6472,0.0063,***,1399,0.0671
+rmb_invoicing_w,(B) CIPS×Sanc [wins.],Pull: CIPS,CIPSit,-0.0679,0.1271,0.5934,,1399,0.1377
+rmb_invoicing_w,(B) CIPS×Sanc [wins.],Push: Sanctions,sanction_fin_norm_fixed,-0.1595,0.3834,0.6776,,1399,0.1377
+rmb_invoicing_w,(B) CIPS×Sanc [wins.],CIPS×Sanctions,cips_x_sanction,1.5559,0.7908,0.0493,**,1399,0.1377
+rmb_invoicing_w,(C) Clear×Sanc [wins.],Pull: Clearing bank,clearing_bank_it,0.2468,0.1225,0.0442,**,1399,0.0645
+rmb_invoicing_w,(C) Clear×Sanc [wins.],Push: Sanctions,sanction_fin_norm_fixed,-0.5341,0.4717,0.2577,,1399,0.0645
+rmb_invoicing_w,(C) Clear×Sanc [wins.],Clearing×Sanctions,clear_x_sanction,2.1973,0.9665,0.0232,**,1399,0.0645
+rmb_inv_asinh,(A) Infra×Sanc [asinh],Pull: RMB infra,rmb_infra_it,0.0944,0.0444,0.0337,**,1399,0.1055
+rmb_inv_asinh,(A) Infra×Sanc [asinh],Push: Sanctions,sanction_fin_norm_fixed,-1.0829,0.3692,0.0034,***,1399,0.1055
+rmb_inv_asinh,(A) Infra×Sanc [asinh],Push×Pull,infra_x_sanction,1.2214,0.35,0.0005,***,1399,0.1055
+rmb_inv_asinh,(B) CIPS×Sanc [asinh],Pull: CIPS,CIPSit,-0.0764,0.0566,0.1772,,1399,0.18
+rmb_inv_asinh,(B) CIPS×Sanc [asinh],Push: Sanctions,sanction_fin_norm_fixed,-0.162,0.2154,0.4522,,1399,0.18
+rmb_inv_asinh,(B) CIPS×Sanc [asinh],CIPS×Sanctions,cips_x_sanction,1.2413,0.4304,0.004,***,1399,0.18
+rmb_inv_asinh,(C) Clear×Sanc [asinh],Pull: Clearing bank,clearing_bank_it,0.2062,0.0893,0.021,**,1399,0.1085
+rmb_inv_asinh,(C) Clear×Sanc [asinh],Push: Sanctions,sanction_fin_norm_fixed,-0.3648,0.2588,0.159,,1399,0.1085
+rmb_inv_asinh,(C) Clear×Sanc [asinh],Clearing×Sanctions,clear_x_sanction,1.468,0.492,0.0029,***,1399,0.1085

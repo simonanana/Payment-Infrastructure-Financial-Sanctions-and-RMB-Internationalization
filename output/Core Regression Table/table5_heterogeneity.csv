@@ -1,0 +1,13 @@
+DV,spec,label,var,beta,se,p,stars,n,r2
+clearing_bank_it,sanction_split [clearing_bank_it],Ever-sanctioned,CIPSit,0.7803,0.2011,0.0001,***,367,0.8412
+rmb_invoicing_w,sanction_split [rmb_invoicing_w],Ever-sanctioned,CIPSit,-0.5757,0.3579,0.1095,,245,0.4856
+clearing_bank_it,sanction_split [clearing_bank_it],Never-sanctioned,CIPSit,0.0793,0.0514,0.1235,,1408,0.2485
+rmb_invoicing_w,sanction_split [rmb_invoicing_w],Never-sanctioned,CIPSit,-0.0047,0.1193,0.9689,,1154,0.1075
+clearing_bank_it,brics_split [clearing_bank_it],BRICS member,CIPSit,-0.2239,0.1071,0.0461,**,54,0.8264
+rmb_invoicing_w,brics_split [rmb_invoicing_w],BRICS member,CIPSit,-0.3058,0.166,0.0765,*,54,0.7841
+clearing_bank_it,brics_split [clearing_bank_it],Non-BRICS,CIPSit,0.1446,0.0602,0.0165,**,1721,0.2666
+rmb_invoicing_w,brics_split [rmb_invoicing_w],Non-BRICS,CIPSit,-0.058,0.1233,0.6383,,1345,0.1373
+clearing_bank_it,trade_split [clearing_bank_it],High China trade,CIPSit,0.3133,0.1002,0.0018,***,734,0.3133
+rmb_invoicing_w,trade_split [rmb_invoicing_w],High China trade,CIPSit,0.0602,0.2111,0.7756,,639,0.2079
+clearing_bank_it,trade_split [clearing_bank_it],Low China trade,CIPSit,0.0721,0.0594,0.2257,,756,0.2344
+rmb_invoicing_w,trade_split [rmb_invoicing_w],Low China trade,CIPSit,-0.0155,0.063,0.8061,,553,0.0226
