@@ -1,0 +1,3 @@
+Outcome,Lambda_optimal,PreRMSE_baseline,PreRMSE_penalized,PostGap_baseline,PostGap_penalized,p_baseline,p_penalized,N_baseline,N_penalized,Direction_preserved,Top_penalized_donors
+rmb_settlement_proxy_it,0.0,0.0692,0.0692,-0.609,-0.609,0.0701,skipped,6,6,True,"MDV (56%), COG (21%), SDN (10%)"
+bmp_premium_arcsinh,0.0,0.2712,0.2712,1.5854,1.5854,0.0255,skipped,3,3,True,"EGY (19%), LKA (18%), VEN (2%)"
