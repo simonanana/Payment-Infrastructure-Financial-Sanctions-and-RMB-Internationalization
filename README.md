@@ -243,7 +243,7 @@ python run_all.py --fresh --out ../output \
   title  = {The Sanctions Paradox: Financial Sanctions, Payment Rails, and Currency
             Diversification --- Evidence from Staggered Difference-in-Differences
             and Penalized Synthetic Control},
-  author = {[Author]},
+  author = {Yihan Guo},
   year   = {2026},
   note   = {Working paper}
 }
