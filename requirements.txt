@@ -1,0 +1,12 @@
+# Python 3.11 or 3.12 recommended (tested on 3.11). 3.13/3.14 have wheels but are untested here.
+numpy>=1.24,<3
+pandas>=2.0,<4
+scipy>=1.10
+matplotlib>=3.7
+statsmodels>=0.14
+linearmodels>=6.0          # PanelOLS (TWFE, clustered SEs)
+patsy>=0.5                 # runtime dependency of csdid
+joblib>=1.2                # runtime dependency of csdid
+# csdid / drdid are installed SEPARATELY with --no-deps (see install.sh / README):
+#   csdid 0.4.2 declares plotnine + twine as dependencies, but never imports them.
+#   Skipping them avoids ~25 extra downloads (the step that timed out).

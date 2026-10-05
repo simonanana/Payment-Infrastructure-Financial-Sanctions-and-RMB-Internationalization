@@ -1,183 +1,74 @@
-# Sanctions, Infrastructure, and De-Dollarization: Panel Evidence on the Push–Pull–Resist Framework
+# MEG 2026 — figure regeneration and result verification
 
-[![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/Notebook-Jupyter-orange)](https://jupyter.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+This package regenerates every figure in `MEG2026_slides_content_v2.md` and checks every number against the submitted paper. It starts from the public repository's `MASTER_PANEL.csv` and uses the same variable construction as `sanctions_dedollarization_panel.ipynb`, `dedollar_v24_comprehensive.ipynb` (CS-DiD), `dedollar_v29_final.ipynb` (Appendix C) and `09_scm_penalized_v2(_finalize).ipynb` (SCM).
 
-## Overview
-
-This repository contains the full empirical analysis code for the working paper:
-
-> **"Payment Infrastructure, Financial Sanctions, and Cross-Border Currency Diversification: A Panel Study of BRICS+ and Developing Economies, 2010–2023"**
-
-The paper formalizes the **Sanctions Paradox**: the finding that financial sanctions and dollar-hegemony erosion are not opposing forces but sequential phases of a single, infrastructure-contingent process. Using a balanced panel of **170 countries over 2010–2023** (N = 2,380 country-year observations), the analysis estimates the conditions under which China's cross-border payment infrastructure (CIPS/clearing banks) converts the political risk premium embedded in financial sanctions into observable RMB invoicing diversification.
-
-
-## Theoretical Framework
-
-The international monetary system is modeled as three concurrent structural forces:
-
-| Force | Description | Empirical Proxy |
-|-------|-------------|-----------------|
-| **Push** | Weaponization of dollar-denominated payment infrastructure through financial sanctions | Normalized financial sanctions intensity |
-| **Pull** | Deliberate construction of parallel non-dollar payment architectures (CIPS, clearing banks, swap lines) by China and the BRICS+ bloc | CIPS accession, RMB clearing-bank presence, bilateral swap lines |
-| **Resist** | Digital reproduction of dollar hegemony through USD-pegged stablecoins | USD stablecoin penetration |
-
-The central theoretical contribution is the **Sanctions Paradox**: sanctions reinforce dollar usage when RMB infrastructure is absent (Phase 1) but erode it when infrastructure is in place (Phase 2). The 2022 Russia sanctions watershed serves as the empirical trigger for the population-average Phase 1 → Phase 2 mechanism-state transition.
-
-
-## Key Findings
-
-| Finding | Estimator | Coefficient | p-value |
-|---------|-----------|-------------|---------|
-| CIPS accession → clearing-bank adoption | CS-DiD (preferred) | +5.2 pp | ≈ 0.04 |
-| CIPS accession → clearing-bank adoption | TWFE baseline | +37.8 pp | < 0.001 |
-| CIPS accession → clearing-bank adoption | TWFE + group trend | +17.8 pp | < 0.01 |
-| Push×Pull interaction (core) | TWFE | α₃ = +1.77 | 0.006 |
-| Push×Pull interaction (arcsinh DV) | TWFE | α₃ = +1.22 | < 0.001 |
-| Sanctions main effect (no infrastructure) | TWFE | α₂ = −1.57 | 0.015 |
-| Phase 2 Push×Pull amplification (post-2022) | TWFE | α₃ = +20.8 | 0.018 |
-
-The Phase 2 interaction coefficient is **7–13× larger** than the pre-2022 estimate, corroborating the two-phase Sanctions Paradox dynamic.
-
-
-## Methodology
-
-### Econometric Specifications
-
-1. **Two-Way Fixed Effects (TWFE)** — baseline and group-trend-corrected, with entity and time fixed effects, clustered standard errors by country
-2. **Event Study** — dynamic treatment effects around CIPS accession (2015–2018 cohorts)
-3. **Callaway–Sant'Anna (2021) CS-DiD** — heterogeneity-robust DiD with group-time ATTs; preferred causal estimator
-4. **Poisson Pseudo-Maximum Likelihood (PPML)** — count/share outcome robustness
-5. **Instrumental Variable (IV)** — regional CIPS adoption share as instrument for individual CIPS accession
-6. **Push×Pull Interaction Models** — three infrastructure proxies (RMB infra index, CIPS, clearing bank); two DV transformations (Winsorized share, arcsinh)
-7. **Temporal Decomposition** — Pre-2022 (Phase 1) vs. Post-2022 (Phase 2) subsamples
-
-### Identification Strategy
-
-Three sources of quasi-experimental variation are exploited:
-- **Staggered CIPS accession** (2015: 8 countries; 2016: 32 countries; 2018: 1 country)
-- **Exogenous Russia sanctions shocks** (2014 and 2022)
-- **Sender–Target–Observer taxonomy** structuring mechanism transmission and heterogeneity tests
-
-### Controls
-
-GDP (log), trade openness (log), financial depth, capital account openness (Chinn–Ito), GDP growth, inflation (Winsorized), FDI inflows (% GDP, Winsorized), UN General Assembly alignment score.
-
-
-## Repository Structure
-
-```
-.
-├── sanctions_dedollarization_panel.ipynb   # Main analysis notebook (all sections)
-├── master_panel.csv                        # Required: 170-country balanced panel (not included)
-├── output/                                 # Auto-created on run — 23 output files total
-│   │
-│   ├── ── Core Regression Tables ──────────────────────────────────────────────
-│   ├── table1_core_cips_infrastructure.csv     # CIPS → RMB Infrastructure (TWFE, Table 1)
-│   ├── table2_push_pull_interaction.csv        # Push×Pull Interaction on RMB Invoicing (Table 2)
-│   ├── table4_sanctions_paradox_temporal.csv   # Phase 1 vs. Phase 2 Temporal Decomposition
-│   ├── table5_heterogeneity.csv                # Sender–Target–Observer Role Taxonomy
-│   ├── table_robustness.csv                    # Robustness checks (broad CIPS, exclusions, transforms)
-│   ├── table_ppml.csv                          # PPML estimation results
-│   ├── table_iv.csv                            # IV estimation results
-│   │
-│   ├── ── Main Figures ────────────────────────────────────────────────────────
-│   ├── fig_event_study.png                     # Event study: CIPS dynamic treatment effects
-│   ├── fig_csdid_dynamic.png                   # CS-DiD group-time ATT estimates
-│   ├── fig_three_forces.png                    # Push–Pull–Resist three-force diagram
-│   ├── fig_three_role.png                      # Sender–Target–Observer role heterogeneity
-│   ├── fig_observer_heatmap_bar.png            # Observer country heatmap/bar chart
-│   ├── fig_force_vectors.png                   # Force vector diagram (Phase 1 vs. Phase 2)
-│   ├── fig_observer_quadrants_panel.png        # Quadrant: sanctions exposure × infrastructure
-│   │
-│   ├── ── Supplementary Figures ───────────────────────────────────────────────
-│   ├── fig_argentina_deep_dive.png             # Argentina leverage point & leave-one-out
-│   ├── fig_marginal_effects.png                # Marginal effect of sanctions as f(Infrastructure)
-│   ├── fig_permutation_test.png                # Permutation inference: Phase 2 (N=1,000)
-│   ├── fig_force_composition_integrated.png    # Integrated force composition + marginal effects
-│   │
-│   └── ── Supplementary Tables ────────────────────────────────────────────────
-│       ├── csdid_dynamic_att.csv               # CS-DiD group-time ATT point estimates
-│       ├── phase2_leave_one_out.csv            # Phase 2 leave-one-out sensitivity
-│       ├── phase2_dfbetas.csv                  # DFBETA influence diagnostics (Phase 2)
-│       └── table_placebo.csv                   # Placebo treatment date falsification test
-│
-└── README.md
-```
-
-## Notebook Structure
-
-| Section | Content |
-|---------|---------|
-| 1 | Environment setup and package installation |
-| 2 | Data loading, variable construction, CIPS cohort verification, BRICS+ profiles |
-| 3 | Helper functions (TWFE wrapper, table export) |
-| 4 | Core regression tables (Table 1: CIPS → Infrastructure; Table 2: Push×Pull) |
-| 5 | Event study (dynamic treatment effects) |
-| 6 | Callaway–Sant'Anna CS-DiD estimation |
-| 7 | PPML robustness |
-| 8 | IV estimation (regional CIPS share instrument) |
-| 9 | Heterogeneity analysis (subgroup splits and role taxonomy) |
-| 10 | Robustness checks (broad CIPS, sample exclusions, DV transforms) |
-| 11 | Temporal decomposition + bootstrap amplification ratio CI |
-| 12 | All main text figures |
-| 13 | Paper statistics verification |
-| 14 | Output export summary |
-| 15 | Supplementary analyses (Argentina deep dive, marginal effects, permutation inference, placebo test, force composition figure) |
-
-
-## Data Requirements
-
-The main analysis requires `master_panel.csv` — a balanced country-year panel with the following key variables:
-
-| Variable | Description |
-|----------|-------------|
-| `iso3` | ISO 3166-1 alpha-3 country code |
-| `year` | Year (2010–2023) |
-| `CIPSit` | CIPS membership indicator (0/1) |
-| `clearing_bank_it` | RMB offshore clearing bank indicator (0/1) |
-| `swap_line_it` | PBoC bilateral swap line indicator (0/1) |
-| `rmb_infra_it` | RMB infrastructure index (clearing bank + swap line, 0–2) |
-| `rmb_invoicing_share` | Cross-border RMB invoicing share (%) |
-| `sanction_fin_norm_fixed` | Normalized financial sanctions intensity |
-| `ln_gdp` | Log GDP (constant USD) |
-| `ln_trade_openness` | Log trade openness |
-| `financial_depth_it` | Private credit / GDP |
-| `capital_openness_it_filled` | Chinn–Ito capital account openness index |
-| `gdp_growth_it` | GDP growth rate |
-| `inflation_it_w` | CPI inflation (Winsorized) |
-| `fdi_inflow_gdp_it_w` | FDI inflows / GDP (Winsorized) |
-| `unga_align_norm_it` | UN General Assembly voting alignment with China |
-
-**Data sources:** BIS Triennial Survey, SWIFT RMB Tracker, PBoC reports, CIPS official disclosures, World Bank WDI, IMF IFS, Chinn–Ito index, UN Comtrade, UNGA voting records, Global Sanctions Database.
-
-
-## Installation
+## 1. Setup (one time)
 
 ```bash
-pip install pandas numpy scipy matplotlib statsmodels linearmodels
+cd meg_replication
+python3.12 -m venv .venv             # 3.11 / 3.12 recommended; check with: python3.12 --version
+source .venv/bin/activate            # Windows: .venv\Scripts\activate
+bash install.sh                      # or: bash install.sh mirror   (slow / blocked PyPI)
 ```
 
-Or using conda:
+`install.sh` runs `pip install -r requirements.txt`, then `pip install --no-deps csdid==0.4.2 drdid==1.1.6`, then an import check. csdid is installed without its declared dependencies on purpose: it lists plotnine and twine but never imports them.
+
+## 2. Inputs
+
+| Flag | File | Needed for | Where it comes from |
+|---|---|---|---|
+| `--panel` | `MASTER_PANEL.csv` | everything | GitHub repo root (note the upper-case name) |
+| `--panel-full` | `MASTER_PANEL_v25b_clean.csv` | SCM with BMP (Slides 9–10) | your local data folder (the repo copy has no BMP columns) |
+| `--rebuilt` | `MASTER_PANEL_v25c_rebuilt.csv` | Slide 11 trade panel, Appendix A2 heterogeneity | `pathc/data/` (written by `run_10_apply_rebuilt.py`) |
+| `--tracker` | `swift_rmb_tracker_manual_long.csv` | Slide 11 tracker ranks | your local data folder |
+
+Only `--panel` is required. Any step whose optional input is missing is skipped, and the report marks it SKIP.
+
+## 3. Run
 
 ```bash
-conda install pandas numpy scipy matplotlib statsmodels
-pip install linearmodels
+# full run (about 25–40 min; the SCM placebo loops take most of the time)
+python run_all.py --fresh \
+  --panel MASTER_PANEL.csv \
+  --panel-full data/MASTER_PANEL_v25b_clean.csv \
+  --rebuilt   data/MASTER_PANEL_v25c_rebuilt.csv \
+  --tracker   data/swift_rmb_tracker_manual_long.csv
+
+# quick check (about 5 min: fewer bootstrap draws, skips the penalized placebo)
+python run_all.py --fresh --fast --panel MASTER_PANEL.csv --panel-full data/MASTER_PANEL_v25b_clean.csv
+
+# single steps
+python run_all.py --only s02 s06 --panel MASTER_PANEL.csv
 ```
 
-The notebook also supports Google Colab — upload `master_panel.csv` to the Colab session storage or mount Google Drive before running.
+Outputs are written to `output/figures/` (PNG at 300 dpi plus PDF), `output/tables/` (CSV), `output/results.json` and `output/verification_report.md` (PASS / FAIL / NEW / SKIP for every number).
 
+## 4. Steps → slides
 
-## Replication
+| Step | Script | Slide | Figures |
+|---|---|---|---|
+| s01 | `meg/s01_part1.py` | 5, A1 | `fig_s5_event_study`, `fig_a1_csdid_dynamic` |
+| s02 | `meg/s02_part2.py` | 6, 7, A2 | `fig_s6_marginal_effects`, `fig_s7_loo_caterpillar` |
+| s03 | `meg/s03_temporal.py` | 8 | `fig_s8_argentina_loo` |
+| s04 | `meg/s04_scm.py` | 9, 10, A3 | `fig_s9_lambda_sweep`, `fig_s9_donor_weights`, `fig_s10_scm`, `fig_s10_scm_3panel_archival` |
+| s05 | `meg/s05_russia.py` | 11, A2 | `fig_s11_russia_facts` |
+| s06 | `meg/s06_verify.py` | all | `verification_report.md` |
 
-1. Clone the repository
-2. Place `master_panel.csv` in the project root
-3. Run `sanctions_dedollarization_panel.ipynb` from top to bottom
-4. All figures and tables will be saved to `output/`
+## 5. What is re-estimated, and why
 
+- **CS-DiD standard error.** The paper's SE of 0.018 combined the ATT(g,t) cells as if they were independent. `csdid.aggte(..., bstrap=True)` uses the influence function instead; it is reported side by side with the paper's version in `a1_csdid_sensitivity.csv`.
+- **Anticipation.** CS-DiD is re-run with `anticipation = 1, 2` and with a not-yet-treated control group. The rollout-timing table shows clearing banks preceding CIPS accession.
+- **Russia 2022–23.** These two observations drop out of every controlled regression because financial depth is missing. `restore_russia()` fills them with the 2021 value (the LOCF rule the paper already uses for Chinn–Ito). Every affected table reports the published sample alongside the restored one.
+- **Leave-one-out.** The loop runs over countries in the estimation sample (112), not over all countries with invoicing data (121). Dropping a country that is not in the sample does not change the estimate, so counting it would inflate the tally.
+- **SCM placebo.** The p-value is reported both as the paper's n/N and as (n+1)/(N+1), and both for all donors and for informative donors only (those with a non-constant pre-period outcome).
+- **Post-2022 bootstrap and permutation.** These use an exact dummy-variable OLS. The code checks that its point estimate equals PanelOLS on the actual sample, and skips draws in which α₃ is not identified, as the paper's code did. Percentiles differ slightly from the paper's because the random-number streams differ.
+- **SLSQP convergence.** The SCM weights use the paper's SLSQP settings so that the paper's numbers reproduce exactly. SLSQP reports "not converged" at λ ≥ 1 because the tolerance is very tight. The convex-QP check in `pathc/scmlib` (cvxpy, multi-start) gave the same weights.
 
-## Keywords
+## 6. Values to confirm before presenting
 
-`de-dollarization` · `cross-border payment infrastructure` · `CIPS` · `financial sanctions` · `BRICS+` · `renminbi internationalization` · `push–pull model` · `Sanctions Paradox` · `panel econometrics` · `Callaway–Sant'Anna` · `PPML` · `event study` · `two-way fixed effects`
+- BRICS status lists (`BRICS_MEMBERS / INVITED / PARTNERS` in `s04_scm.py`) are set as of 2025. Check them against an official source on the day of the talk.
+- Russia's RMB clearing-bank designation year (the panel codes 2015).
 
+## 7. Figure style
+
+All figures use one y-axis per panel. Wherever the originals used a dual axis (marginal-effects density, λ sweep, Argentina), the second measure is now a separate panel. Categorical colours are the first three validated slots (blue / orange / aqua). Russia's highlight colour is always paired with a text label.
