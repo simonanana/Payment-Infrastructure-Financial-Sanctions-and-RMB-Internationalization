@@ -1,0 +1,7 @@
+outcome,lambda,pool,N,n_exceed,p_paper (n/N),p_(n+1)/(N+1),russia_post_abs_gap,exceeding
+bmp_premium_arcsinh,0.0,all donors (paper),157,4,0.0255,0.0316,1.5854,"AGO, EGY, GHA, LBN"
+bmp_premium_arcsinh,0.0,informative donors only,17,4,0.2353,0.2778,1.5854,"AGO, EGY, GHA, LBN"
+rmb_settlement_proxy_it,0.0,all donors (paper),157,11,0.0701,0.0759,0.609,"ALB, BIH, DOM, ESP, MDG, MNG, MOZ, SDN, SRB, VNM, ZMB"
+rmb_settlement_proxy_it,0.0,informative donors only,116,11,0.0948,0.1026,0.609,"ALB, BIH, DOM, ESP, MDG, MNG, MOZ, SDN, SRB, VNM, ZMB"
+bmp_premium_arcsinh,1.0,all donors (paper),142,3,0.0211,0.028,1.9465,"EGY, GHA, LBN"
+bmp_premium_arcsinh,1.0,informative donors only,14,3,0.2143,0.2667,1.9465,"EGY, GHA, LBN"

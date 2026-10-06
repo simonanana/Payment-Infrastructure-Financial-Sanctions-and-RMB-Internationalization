@@ -1,0 +1,5 @@
+model,var,beta,se,p,F
+PPML (A),rmb_infra_it,0.7213,0.3827,0.0595,
+PPML (A),sanction_fin_norm_fixed,14.9513,6.3657,0.0188,
+PPML (A),infra_x_sanction,-1.6682,4.0484,0.6803,
+IV first stage,regional_cips_share,0.1478,0.1102,0.1801,1.7984

@@ -1,0 +1,13 @@
+outcome,lambda,pre_rmse,post_gap,n_donors_pool,n_weight_ge_1pct,converged,top3
+bmp_premium_arcsinh,0.0,0.2712,1.5854,142,3,True,"EGY (19%), LKA (18%), VEN (2%)"
+bmp_premium_arcsinh,0.01,0.2712,1.5884,142,4,True,"IDN (61%), EGY (19%), LKA (18%)"
+bmp_premium_arcsinh,0.1,0.2715,1.6172,142,4,True,"IDN (62%), EGY (19%), LKA (17%)"
+bmp_premium_arcsinh,1.0,0.2945,1.9465,142,3,False,"IDN (66%), TUR (19%), EGY (14%)"
+bmp_premium_arcsinh,10.0,0.3724,2.2192,142,2,False,"IDN (72%), TUR (28%)"
+bmp_premium_arcsinh,100.0,0.6727,3.0886,142,1,False,IDN (100%)
+rmb_settlement_proxy_it,0.0,0.0692,-0.609,142,6,True,"MDV (56%), COG (21%), SDN (10%)"
+rmb_settlement_proxy_it,0.01,0.077,-0.8152,142,5,True,"BRN (71%), SDN (13%), COG (8%)"
+rmb_settlement_proxy_it,0.1,0.1489,-0.5049,142,5,True,"TUR (39%), BGD (23%), COL (17%)"
+rmb_settlement_proxy_it,1.0,0.2825,-1.0279,142,3,False,"IDN (66%), TUR (32%), PER (2%)"
+rmb_settlement_proxy_it,10.0,0.3292,-1.5248,142,1,False,IDN (100%)
+rmb_settlement_proxy_it,100.0,0.3292,-1.5249,142,1,False,IDN (100%)
