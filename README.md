@@ -38,8 +38,10 @@ The evidence comes from a balanced panel of **170 countries, 2010–2023** (2,38
 
 The marginal effect of sanctions on RMB invoicing is
 
-$$\frac{\partial\,\text{RMB invoicing}}{\partial\,\text{Sanctions}} = \alpha_2 + \alpha_3\,\text{Infra}
-\quad\Longrightarrow\quad \text{Infra}^* = |\alpha_2| / \alpha_3 .$$
+```math
+\frac{\partial\,\mathrm{RMB\ invoicing}}{\partial\,\mathrm{Sanctions}} = \alpha_2 + \alpha_3\,\mathrm{Infra}
+\qquad\Longrightarrow\qquad \mathrm{Infra}^{*} = \frac{|\alpha_2|}{\alpha_3}
+```
 
 The framework predicts α₂ ≤ 0 (Phase 1, coercive reinforcement) and α₃ > 0 (Phase 2, complementarity). Infra\* is the infrastructure level at which the sign of the sanctions effect flips.
 
@@ -73,9 +75,13 @@ Optional inputs are used for Part III. Place them in `data/`:
 
 **Part I: infrastructure rollout.** TWFE regressions of clearing-bank, swap-line and composite-infrastructure adoption on CIPS accession, with and without a treated-group linear trend. Then an event study (reference t = −1) and Callaway–Sant'Anna group-time ATTs with never-treated and not-yet-treated controls and 0–2 years of anticipation. Aggregation uses the influence function with 999 multiplier-bootstrap draws.
 
-**Part II: Push × Pull interaction.**
-$y_{it} = \alpha_1 \text{Infra}_{it} + \alpha_2 \text{Sanc}_{it} + \alpha_3 (\text{Infra}\times\text{Sanc})_{it} + X_{it}'\gamma + \mu_i + \lambda_t + \varepsilon_{it}$,
-with country and year fixed effects, eight controls and country-clustered SEs. The model is estimated:
+**Part II: Push × Pull interaction.** The core specification is
+
+```math
+y_{it} = \alpha_1\,\mathrm{Infra}_{it} + \alpha_2\,\mathrm{Sanc}_{it} + \alpha_3\,(\mathrm{Infra}\times\mathrm{Sanc})_{it} + X_{it}'\gamma + \mu_i + \lambda_t + \varepsilon_{it}
+```
+
+with country and year fixed effects ($`\mu_i, \lambda_t`$), eight controls ($`X_{it}`$) and country-clustered SEs. The model is estimated:
 
 - with three infrastructure measures (composite index, CIPS, clearing bank) and two outcome transformations (winsorized, arcsinh);
 - with a winsorization ladder (95th / 99th / 99.5th / none), log(1+y), a two-part model, two-way clustering and leave-one-cohort-out;
@@ -165,27 +171,39 @@ The scripted pipeline reproduces the paper's estimates and documents five issues
 .
 ├── README.md
 ├── LICENSE
+├── .gitignore
 ├── MASTER_PANEL.csv                       # 170 x 14 balanced panel (required)
 ├── sanctions_dedollarization_panel.ipynb  # original analysis notebook (paper version)
+├── output/                                # archived outputs of the original notebook (unchanged)
+│   ├── Core Regression Table/
+│   ├── Main Figures/
+│   ├── Supplementary Figures/
+│   └── Supplementary Tables/
 ├── data/                                  # optional inputs for Part III (see Data)
-├── replication/
-│   ├── run_all.py                         # one-command pipeline
-│   ├── install.sh                         # environment setup (+ mirror option)
-│   ├── requirements.txt
-│   └── pipeline/
-│       ├── common.py                      # variable construction, estimators, style
-│       ├── s01_cips_rollout.py            # Part I
-│       ├── s02_interaction.py             # Part II: interaction, robustness, LOO
-│       ├── s03_temporal.py                # Part II: temporal decomposition, Argentina
-│       ├── s04_synthetic_control.py       # Part III: (penalized) SCM, structural peers
-│       ├── s05_russia_facts.py            # Part III: observed facts, heterogeneity
-│       └── s06_verify.py                  # checks every number against the paper
-└── output/
-    ├── figures/                           # PNG (300 dpi) + PDF
-    ├── tables/                            # CSV
-    ├── results.json
-    └── verification_report.md
+│   └── swift_rmb_tracker_manual_long.csv
+└── replication/                           # scripted pipeline (current, verified)
+    ├── run_all.py                         # one-command pipeline
+    ├── install.sh                         # environment setup (+ mirror option)
+    ├── requirements.txt
+    ├── pipeline/
+    │   ├── common.py                      # variable construction, estimators, style
+    │   ├── s01_cips_rollout.py            # Part I
+    │   ├── s02_interaction.py             # Part II: interaction, robustness, LOO
+    │   ├── s03_temporal.py                # Part II: temporal decomposition, Argentina
+    │   ├── s04_synthetic_control.py       # Part III: (penalized) SCM, structural peers
+    │   ├── s05_russia_facts.py            # Part III: observed facts, heterogeneity
+    │   └── s06_verify.py                  # checks every number against the paper
+    └── results/                           # regenerated outputs
+        ├── figures/                       # PNG, 300 dpi
+        ├── tables/                        # CSV
+        ├── results.json
+        └── verification_report.md
 ```
+
+**Two output folders, two roles.**
+
+- `output/` keeps the files produced by the original notebook, unchanged, as an archive of the submitted version.
+- `replication/results/` is produced by the scripted pipeline and verified against the paper (54/54 values reproduced). Where the two differ, `replication/results/` is authoritative. For example, `output/Supplementary Tables/table_placebo.csv` was written by an earlier code version, and the synthetic-control figures in `output/Supplementary Figures/` have no generating code in the notebook. Both are regenerated in `replication/results/`.
 
 ---
 
@@ -198,7 +216,7 @@ cd Payment-Infrastructure-Financial-Sanctions-and-RMB-Internationalization/repli
 python3.12 -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\activate
 bash install.sh              # or: bash install.sh mirror   (PyPI mirror for slow connections)
 
-python run_all.py --fresh --out ../output \
+python run_all.py --fresh --out results \
   --panel      ../MASTER_PANEL.csv \
   --panel-full ../data/MASTER_PANEL_v25b_clean.csv \
   --rebuilt    ../data/MASTER_PANEL_v25c_rebuilt.csv \
@@ -210,7 +228,7 @@ python run_all.py --fresh --out ../output \
 - **Selected steps.** Run individual steps with, for example, `--only s02 s06`.
 - **Why `install.sh` exists.** It installs `csdid` with `--no-deps`. The package declares `plotnine` and `twine` as dependencies but never imports them.
 
-`output/verification_report.md` lists every reproduced quantity as PASS / FAIL against the paper, followed by the re-estimated results. The current run reproduces all 54 paper values. The published CS-DiD standard error (0.0173) is reproduced only with a fixed seed, because it is built from bootstrap per-cell SEs; it is superseded by the influence-function SE above.
+`replication/results/verification_report.md` lists every reproduced quantity as PASS / FAIL against the paper, followed by the re-estimated results. The current run reproduces all 54 paper values. The published CS-DiD standard error (0.0173) is reproduced only with a fixed seed, because it is built from bootstrap per-cell SEs; it is superseded by the influence-function SE above.
 
 ### Pipeline outputs
 
@@ -232,7 +250,7 @@ python run_all.py --fresh --out ../output \
 
 ### Original notebook
 
-`sanctions_dedollarization_panel.ipynb` is the analysis notebook in the form used for the paper. It reads `master_panel.csv`; on case-sensitive systems (Linux, Colab), either rename the file or set `PANEL_FILE = 'MASTER_PANEL.csv'` in the data-loading cell.
+`sanctions_dedollarization_panel.ipynb` is the analysis notebook in the form used for the paper; its outputs are archived in `output/`. It reads `master_panel.csv`. On case-sensitive systems (Linux, Colab), either rename the file or set `PANEL_FILE = 'MASTER_PANEL.csv'` in the data-loading cell. The CS-DiD cell requires `csdid` and is skipped silently if the package is missing. The scripted pipeline covers every notebook result plus the synthetic-control analysis.
 
 ---
 
@@ -243,7 +261,7 @@ python run_all.py --fresh --out ../output \
   title  = {The Sanctions Paradox: Financial Sanctions, Payment Rails, and Currency
             Diversification --- Evidence from Staggered Difference-in-Differences
             and Penalized Synthetic Control},
-  author = {Yihan Guo},
+  author = {[Author]},
   year   = {2026},
   note   = {Working paper}
 }
