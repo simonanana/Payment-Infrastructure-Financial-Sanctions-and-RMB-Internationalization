@@ -1,0 +1,4 @@
+definition,K_in_pool,N_pool,hits_top10,p_hypergeom
+members only,7,154,4,0.00029574144202148997
+"members + invited (SAU, TUR)",9,154,6,9.790720178325401e-07
+members + invited + partners,17,154,6,0.00011876181999777272

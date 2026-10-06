@@ -1,0 +1,13 @@
+outcome,lambda,cv_mse
+bmp_premium_arcsinh,0.0,0.130763
+bmp_premium_arcsinh,0.01,0.130028
+bmp_premium_arcsinh,0.1,0.129448
+bmp_premium_arcsinh,1.0,0.111498
+bmp_premium_arcsinh,10.0,0.155646
+bmp_premium_arcsinh,100.0,0.452654
+rmb_settlement_proxy_it,0.0,0.045746
+rmb_settlement_proxy_it,0.01,0.047646
+rmb_settlement_proxy_it,0.1,0.139185
+rmb_settlement_proxy_it,1.0,0.132738
+rmb_settlement_proxy_it,10.0,0.108345
+rmb_settlement_proxy_it,100.0,0.108465
